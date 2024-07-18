@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import {
     SafeAreaView,
@@ -15,47 +15,67 @@ import {
     onTouchListener,
     PopUp,
     PayWall,
+    loginWithOneTap,
 } from 'csc-react-native-sdk';
-// import Constants from 'expo-constants';
 import { checkLogin } from './api';
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 export default function Content(props: any) {
     const paywallRef = useRef(null);
     const [scrollY, setScrollY] = useState(0);
-    // const [userAgent, setUserAgent] = useState('');
     const [showPaywall, setShowPaywall] = useState<boolean>(true);
     const [showContent, setShowContent] = useState(false);
-    // const [refresh, setRefresh] = useState('');
     const { contentId, clientId, mode } = props?.route?.params;
+
+    GoogleSignin.configure({
+        iosClientId: '294207901282-trr7gg2kntrpq3ud72b95984pcnbq2qq.apps.googleusercontent.com',
+        scopes: ['profile', 'email'],
+        webClientId: '437526332999-lcuabqb0n725i8afv52m5biju849god1.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
+        offlineAccess: true,
+        forceCodeForRefreshToken: true,
+    })
+
+    const signIn = async () => {
+        try {
+            const res = await GoogleSignin.hasPlayServices();
+            const userInfo = await GoogleSignin.signIn();
+            console.log(userInfo);
+            console.log(res);
+
+            console.warn(userInfo.idToken);
+
+            if (userInfo.idToken) {
+                await loginWithOneTap('Content', props.navigation, userInfo.idToken)
+            }
+
+        } catch (error: any) {
+            console.log('got error: ', error.message);
+            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+                // user cancelled the login flow
+            } else if (error.code === statusCodes.IN_PROGRESS) {
+                // operation (e.g. sign in) is in progress already
+            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+                // play services not available or outdated
+            } else {
+                // some other error happened
+            }
+        }
+    };
+
 
     const text = [
         'Where does it come from?\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.',
     ];
     const premiumContent = ['Content Unlock \n Read premium content'];
-    useEffect(() => {
-        // getUserAgent();
-    }, []);
-
-    // async function getUserAgent() {
-    //     setUserAgent((await Constants.getWebViewUserAgentAsync()) as string);
-    // }
 
     const conscentMessage = (message: string) => {
         if (message == 'GoogleLoginClick') {
             console.log('GoogleLoginClick');
 
-            // signIn();
+            signIn();
         }
     };
 
-    // const signIn = async () => {
-    //     // const email = 'product@conscent.ai';
-    //     // const data = await genrateTempToken(email, mode);
-    //     // console.log(data);
-    //     // const tempToken = data?.tempAuthToken;
-
-    //     // await autoLoginView(tempToken, clientId, email, "", "Content", props.navigation, mode);
-    // };
 
     useFocusEffect(
         React.useCallback(() => {

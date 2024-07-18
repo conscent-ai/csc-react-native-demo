@@ -10,7 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "csc-react-native-sdk": "^2.0.0-beta.3",
+    "@react-native-google-signin/google-signin": "^12.2.1",
+    "csc-react-native-sdk": "^2.0.0-beta.5",
     "react": "18.2.0",
     "react-native": "0.74.3"
   },
