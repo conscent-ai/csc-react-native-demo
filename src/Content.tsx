@@ -20,6 +20,13 @@ import {
 import { checkLogin } from './api';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
+GoogleSignin.configure({
+    iosClientId: '784024490654-8k1g0kunb509qsbae5c1fndjs51j4c78.apps.googleusercontent.com',
+    webClientId: '784024490654-r5htgk5oletn228deq8fh6s85hsdn0pg.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
+    offlineAccess: true,
+    forceCodeForRefreshToken: true,
+})
+
 export default function Content(props: any) {
     const paywallRef = useRef(null);
     const [scrollY, setScrollY] = useState(0);
@@ -27,13 +34,6 @@ export default function Content(props: any) {
     const [showContent, setShowContent] = useState(false);
     const { contentId, clientId, mode } = props?.route?.params;
 
-    GoogleSignin.configure({
-        iosClientId: '294207901282-trr7gg2kntrpq3ud72b95984pcnbq2qq.apps.googleusercontent.com',
-        scopes: ['profile', 'email'],
-        webClientId: '437526332999-lcuabqb0n725i8afv52m5biju849god1.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
-        offlineAccess: true,
-        forceCodeForRefreshToken: true,
-    })
 
     const signIn = async () => {
         try {
@@ -50,15 +50,7 @@ export default function Content(props: any) {
 
         } catch (error: any) {
             console.log('got error: ', error.message);
-            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-                // user cancelled the login flow
-            } else if (error.code === statusCodes.IN_PROGRESS) {
-                // operation (e.g. sign in) is in progress already
-            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-                // play services not available or outdated
-            } else {
-                // some other error happened
-            }
+
         }
     };
 
