@@ -27,7 +27,15 @@
 				<string>Editor</string>
 				<key>CFBundleURLSchemes</key>
 				<array>
-					<string>com.googleusercontent.apps.673806424717-schs57p09mcv33hpi2codt0kiohukdcs</string>
+					<string>org.reactjs.native.example.csc-demo</string>
+				</array>
+			</dict>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>com.googleusercontent.apps.784024490654-8k1g0kunb509qsbae5c1fndjs51j4c78</string>
 				</array>
 			</dict>
 		</array>

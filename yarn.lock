@@ -3250,10 +3250,10 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-csc-react-native-sdk@^2.0.0-beta.5:
-  version "2.0.0-beta.5"
-  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.0.0-beta.5.tgz"
-  integrity sha512-+T1Kxm0f4YcmUcZRiSc4J0e+Y8UC/rLufkTQmEthpavkzh7bbBCt0vBhMAkB8PvKM9W0BaNGfmr2JvIbkpZqwg==
+csc-react-native-sdk@^2.0.0-beta.6:
+  version "2.0.0-beta.6"
+  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.0.0-beta.6.tgz"
+  integrity sha512-EIX43ajjsu5JipO2j3Oyx5Y2B4KaM4KNL29TK7pXFzYG9KuJDWSsFRxKqaYxUGxAxHayupgdX8PY5wVjp4OO1Q==
   dependencies:
     "@react-native-async-storage/async-storage" "^1.19.3"
     core-js "^3.37.1"
@@ -3262,6 +3262,7 @@ csc-react-native-sdk@^2.0.0-beta.5:
     jwt-decode "^4.0.0"
     react-native-base64 "^0.2.1"
     react-native-device-info "^10.12.0"
+    react-native-event-listeners "^1.0.7"
     react-native-gesture-handler "^2.14.0"
     react-native-keyboard-manager "^6.5.11-2"
     react-native-keyboard-spacer "^0.4.1"
@@ -6498,6 +6499,13 @@ react-native-device-info@^10.12.0:
   resolved "https://registry.npmjs.org/react-native-device-info/-/react-native-device-info-10.14.0.tgz"
   integrity sha512-9NnTGfhEU4UgQtz4p6COk2Gbqly0dpSWrJtp+dw5rNAi96KtYbaNnO5yoOHDlJ1SVIzh8+hFu3WxVbnWkFU9gA==
 
+react-native-event-listeners@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/react-native-event-listeners/-/react-native-event-listeners-1.0.7.tgz"
+  integrity sha512-yne2ldnqGtABnuN6VSPgs5afaHZZYIAGMoyBUJFn5O2t5t78eCbX9vNa3hvOIIwulKMkZVfqyRtYcSOrNMmMhg==
+  dependencies:
+    type-detect "^4.0.8"
+
 react-native-gesture-handler@^2.14.0, "react-native-gesture-handler@>= 1.0.0", react-native-gesture-handler@~2.16.1:
   version "2.16.2"
   resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.16.2.tgz"
@@ -7474,7 +7482,7 @@ type-check@^0.4.0, type-check@~0.4.0:
   dependencies:
     prelude-ls "^1.2.1"
 
-type-detect@4.0.8:
+type-detect@^4.0.8, type-detect@4.0.8:
   version "4.0.8"
 
 type-fest@^0.16.0:

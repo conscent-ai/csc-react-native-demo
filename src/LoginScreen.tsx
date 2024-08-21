@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
   StyleSheet,
@@ -13,15 +13,7 @@ import {
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
 import { logOut, login, loginWithOneTap } from 'csc-react-native-sdk';
-import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
-
-
-GoogleSignin.configure({
-  iosClientId: '784024490654-8k1g0kunb509qsbae5c1fndjs51j4c78.apps.googleusercontent.com',
-  webClientId: '784024490654-r5htgk5oletn228deq8fh6s85hsdn0pg.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
-  offlineAccess: true,
-  forceCodeForRefreshToken: true,
-})
+import { EventRegister } from "react-native-event-listeners";
 
 export default function LoginScreen(props: any) {
   const [clientId, setClientId] = useState<string>('661907c2487ae1aba956dcc4');
@@ -29,36 +21,39 @@ export default function LoginScreen(props: any) {
   const [mode, setMode] = useState<string>('SANDBOX');
   const environment = ['STAGING', 'SANDBOX', 'LIVE'];
 
-
-
-  const signIn = async () => {
-    try {
-      const res = await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      console.log(userInfo);
-      console.log(res);
-
-      console.warn(userInfo.idToken);
-
-
-
-      if (userInfo.idToken) {
-        await loginWithOneTap('LoginScreen', props.navigation, userInfo.idToken)
-      }
-
-    } catch (error: any) {
-      console.log('got error: ', error.message);
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
+  useEffect(() => {
+    if (props?.route?.params) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      console.log('props?.route?.params?.message', props?.route?.params?.CONSCENT_MESSAGE);
     }
-  };
+  }, [props?.route?.params]);
+
+  useEffect(() => {
+    let CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
+      "CONSCENT_MESSAGE" as string,
+      (data) => {
+        console.log('CONSCENT_MESSAGE', data);
+      }
+    );
+    let CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
+      "CONSCENT_SUCCESS" as string,
+      (data) => {
+        console.log('CONSCENT_SUCCESS', data);
+      }
+    );
+    let CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
+      "CONSCENT_FAILURE" as string,
+      (data) => {
+        console.log('CONSCENT_FAILURE', data);
+      }
+    );
+    return () => {
+      EventRegister.removeEventListener(CONSCENT_MESSAGE_LISTENER);
+      EventRegister.removeEventListener(CONSCENT_SUCCESS_LISTENER);
+      EventRegister.removeEventListener(CONSCENT_FAILURE_LISTENER);
+    };
+  });
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -121,14 +116,6 @@ export default function LoginScreen(props: any) {
 
       <TouchableOpacity
         onPress={async () => {
-          await signIn()
-        }}
-        style={styles.loginBtn}
-      >
-        <Text style={styles.loginText}>Google Login </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={async () => {
           await login('LoginScreen', props.navigation)
         }}
         style={styles.loginBtn}
@@ -138,7 +125,16 @@ export default function LoginScreen(props: any) {
 
       <TouchableOpacity
         onPress={async () => {
-          await logOut('LoginScreen', props?.navigation, mode)
+          await loginWithOneTap('LoginScreen', props.navigation, '8765432123456787654321234567')
+        }}
+        style={styles.loginBtn}
+      >
+        <Text style={styles.loginText}>Google Login </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={async () => {
+          await logOut('LoginScreen', props?.navigation)
           // Alert.alert(res?.data?.message);
         }}
         style={styles.loginBtn}
