@@ -12,11 +12,11 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { logOut, login, loginWithOneTap } from 'csc-react-native-sdk';
+import { logOut, login, openUserProfile } from 'csc-react-native-sdk';
 import { EventRegister } from "react-native-event-listeners";
 
 export default function LoginScreen(props: any) {
-  const [clientId, setClientId] = useState<string>('661907c2487ae1aba956dcc4');
+  const [clientId, setClientId] = useState<string>('66cdad650aa6d0b6dda7b47e');
   const [contentId, setContentId] = useState<string>('Client-Story-Id-1');
   const [mode, setMode] = useState<string>('SANDBOX');
   const environment = ['STAGING', 'SANDBOX', 'LIVE'];
@@ -33,19 +33,19 @@ export default function LoginScreen(props: any) {
     let CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
       "CONSCENT_MESSAGE" as string,
       (data) => {
-        console.log('CONSCENT_MESSAGE', data);
+        console.log('LoginScreen CONSCENT_MESSAGE', data);
       }
     );
     let CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
       "CONSCENT_SUCCESS" as string,
       (data) => {
-        console.log('CONSCENT_SUCCESS', data);
+        console.log('LoginScreen CONSCENT_SUCCESS', data);
       }
     );
     let CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
       "CONSCENT_FAILURE" as string,
       (data) => {
-        console.log('CONSCENT_FAILURE', data);
+        console.warn('LoginScreen CONSCENT_FAILURE', data);
       }
     );
     return () => {
@@ -125,11 +125,12 @@ export default function LoginScreen(props: any) {
 
       <TouchableOpacity
         onPress={async () => {
-          await loginWithOneTap('LoginScreen', props.navigation, '8765432123456787654321234567')
+          // await loginWithOneTap('LoginScreen', props.navigation, '8765432123456787654321234567')
+          await openUserProfile('LoginScreen', props.navigation, '8765432123456787654321234567')
         }}
         style={styles.loginBtn}
       >
-        <Text style={styles.loginText}>Google Login </Text>
+        <Text style={styles.loginText}>User Profile</Text>
       </TouchableOpacity>
 
       <TouchableOpacity

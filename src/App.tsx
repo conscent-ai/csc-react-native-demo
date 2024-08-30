@@ -12,7 +12,7 @@ import { conscentLogger } from 'csc-react-native-sdk';
 
 export default function App() {
   const Stack = createStackNavigator();
-  AsyncStorage.setItem(StorageKeys.ClientId, '661907c2487ae1aba956dcc4')
+  AsyncStorage.setItem(StorageKeys.ClientId, '66cdad650aa6d0b6dda7b47e')
   AsyncStorage.setItem(StorageKeys.ApiEnv, 'SANDBOX')
 
   // Configure the logger
@@ -20,7 +20,7 @@ export default function App() {
     enableLog: true,
     enableAllLog: true,
     enableError: true,
-    enableWarn: false, // Disable warnings
+    enableWarn: true, // Disable warnings
     environment: 'development',
   });
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import {
     SafeAreaView,
@@ -12,17 +12,14 @@ import { useFocusEffect } from '@react-navigation/native';
 import {
     pageExist,
     getEventsEnvDetails,
-    onTouchListener,
     PopUp,
     PayWall,
-    loginWithOneTap,
 } from 'csc-react-native-sdk';
-import { checkLogin } from './api';
+import { EventRegister } from 'react-native-event-listeners';
 
 export default function Content(props: any) {
     const paywallRef = useRef(null);
     const [scrollY, setScrollY] = useState(0);
-    const [showPaywall, setShowPaywall] = useState<boolean>(true);
     const [showContent, setShowContent] = useState(false);
     const { contentId, clientId, mode } = props?.route?.params;
 
@@ -33,48 +30,56 @@ export default function Content(props: any) {
 
 
     const conscentMessage = async (message: string) => {
-        if (message == 'GoogleLoginClick') {
-            console.log('GoogleLoginClick');
+        // if (message == 'GoogleLoginClick') {
+        //     console.log('GoogleLoginClick');
 
-            await loginWithOneTap('LoginScreen', props.navigation, '8765432123456787654321234567')
-        }
+        //     // await loginWithOneTap('LoginScreen', props.navigation, '8765432123456787654321234567')
+        // }
     };
+
+    const goBack = () => {
+        props?.navigation.goBack();
+    }
 
     useFocusEffect(
         React.useCallback(() => {
-            checkLogin();
-            setShowPaywall(true);
+            let CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
+                "CONSCENT_MESSAGE" as string,
+                (data) => {
+                    console.log('Content CONSCENT_MESSAGE', data);
+                }
+            );
+            let CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
+                "CONSCENT_SUCCESS" as string,
+                (data) => {
+                    if (data?.message === 'UNLOCK') {
+                        setShowContent(true);
+                    }
+                    console.log('Content CONSCENT_SUCCESS', data);
+                }
+            );
+            let CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
+                "CONSCENT_FAILURE" as string,
+                (data) => {
+                    console.warn('Content CONSCENT_FAILURE', data);
+                }
+            );
             return () => {
                 removePage();
+                EventRegister.removeEventListener(CONSCENT_MESSAGE_LISTENER);
+                EventRegister.removeEventListener(CONSCENT_SUCCESS_LISTENER);
+                EventRegister.removeEventListener(CONSCENT_FAILURE_LISTENER);
             };
         }, [])
     );
 
     async function removePage() {
-        const res = await pageExist(
+        await pageExist(
             getEventsEnvDetails(mode),
             clientId,
             contentId,
             scrollY
         );
-        console.log('Respones====>', JSON.stringify(res));
-    }
-
-    const goBack = () => {
-        props.navigation.goBack();
-    };
-
-    async function onStatusChange(result: any) {
-        if (result?.successMessage == 'METERBANNER') {
-            setShowPaywall(true);
-            setShowContent(true);
-        } else if (result?.successMessage == 'PAYWALL') {
-            setShowPaywall(true);
-            setShowContent(false);
-        } else if (result?.successMessage == 'UNLOCK') {
-            setShowPaywall(false);
-            setShowContent(true);
-        }
     }
 
     return (
@@ -82,7 +87,6 @@ export default function Content(props: any) {
             <ScrollView
                 onScroll={(e) => {
                     setScrollY(e.nativeEvent.contentOffset.y);
-                    onTouchListener();
                 }}
             >
                 {showContent ? (
@@ -114,31 +118,22 @@ export default function Content(props: any) {
                 )}
             </ScrollView>
 
-            {showPaywall && (
-                <PayWall
-                    ref={paywallRef}
-                    clientId={clientId}
-                    contentId={contentId}
-                    environment={mode}
-                    fontFamily={'PlayfairDisplay-Regular'}
-                    userAgent={
-                        'Dalvik/2.1.0 (Linux; U; Android 12; RMX2121 Build/SP1A.210812.016'
-                    }
-                    conscentMessage={conscentMessage}
-                    onPaywallStatus={(result: any) => {
-                        onStatusChange(result);
-                    }}
-                    onErrorMessage={(error: string) => {
-                        console.log('Error', error);
-                    }}
-                    currentStackName={'Content'}
-                    navigation={props?.navigation}
-                    scrollY={scrollY}
-                    goBack={() => {
-                        goBack();
-                    }}
-                />
-            )}
+            <PayWall
+                ref={paywallRef}
+                clientId={clientId}
+                contentId={contentId}
+                environment={mode}
+                fontFamily={'PlayfairDisplay-Regular'}
+                userAgent={
+                    'Dalvik/2.1.0 (Linux; U; Android 12; RMX2121 Build/SP1A.210812.016'
+                }
+                currentStackName={'Content'}
+                navigation={props?.navigation}
+                scrollY={scrollY}
+                goBack={() => {
+                    goBack();
+                }}
+            />
             <PopUp
                 environment={mode}
                 currentStackName={'Content'}
