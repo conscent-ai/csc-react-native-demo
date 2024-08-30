@@ -30,28 +30,34 @@ export default function LoginScreen(props: any) {
   }, [props?.route?.params]);
 
   useEffect(() => {
-    let CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
-      "CONSCENT_MESSAGE" as string,
+    const CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
+      "CONSCENT_MESSAGE",
       (data) => {
         console.log('LoginScreen CONSCENT_MESSAGE', data);
       }
     );
-    let CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
-      "CONSCENT_SUCCESS" as string,
+    const CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
+      "CONSCENT_SUCCESS",
       (data) => {
         console.log('LoginScreen CONSCENT_SUCCESS', data);
       }
     );
-    let CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
-      "CONSCENT_FAILURE" as string,
+    const CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
+      "CONSCENT_FAILURE",
       (data) => {
         console.warn('LoginScreen CONSCENT_FAILURE', data);
       }
     );
     return () => {
-      EventRegister.removeEventListener(CONSCENT_MESSAGE_LISTENER);
-      EventRegister.removeEventListener(CONSCENT_SUCCESS_LISTENER);
-      EventRegister.removeEventListener(CONSCENT_FAILURE_LISTENER);
+      if (typeof CONSCENT_MESSAGE_LISTENER === 'string') {
+        EventRegister.removeEventListener(CONSCENT_MESSAGE_LISTENER);
+      }
+      if (typeof CONSCENT_SUCCESS_LISTENER === 'string') {
+        EventRegister.removeEventListener(CONSCENT_SUCCESS_LISTENER);
+      }
+      if (typeof CONSCENT_FAILURE_LISTENER === 'string') {
+        EventRegister.removeEventListener(CONSCENT_FAILURE_LISTENER);
+      }
     };
   });
 
