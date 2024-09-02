@@ -8,15 +8,17 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  Alert,
 } from 'react-native';
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
 import { logOut, login, openUserProfile } from 'csc-react-native-sdk';
 import { EventRegister } from "react-native-event-listeners";
+import Toast from 'react-native-toast-message';
 
 export default function LoginScreen(props: any) {
-  const [clientId, setClientId] = useState<string>('66cdad650aa6d0b6dda7b47e');
+  const [clientId, setClientId] = useState<string>('661907c2487ae1aba956dcc4');
   const [contentId, setContentId] = useState<string>('Client-Story-Id-1');
   const [mode, setMode] = useState<string>('SANDBOX');
   const environment = ['STAGING', 'SANDBOX', 'LIVE'];
@@ -39,13 +41,25 @@ export default function LoginScreen(props: any) {
     const CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
       "CONSCENT_SUCCESS",
       (data) => {
-        console.log('LoginScreen CONSCENT_SUCCESS', data);
+
+        Toast.show({
+          type: 'success',
+          text1: `SUCCESS`,
+          text2: `${data?.message}`,
+        });
+        // console.log('LoginScreen CONSCENT_SUCCESS', data);
       }
     );
     const CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
       "CONSCENT_FAILURE",
       (data) => {
-        console.warn('LoginScreen CONSCENT_FAILURE', data);
+
+        Toast.show({
+          type: 'error',
+          text1: `FAILURE`,
+          text2: `${data?.message}`,
+        });
+        // console.warn('LoginScreen CONSCENT_FAILURE', data);
       }
     );
     return () => {
@@ -63,7 +77,12 @@ export default function LoginScreen(props: any) {
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
+
       <Image style={styles.logo} source={require('../assets/conscent.png')} />
+      <Toast
+        position='top'
+        bottomOffset={20}
+      />
       <Text style={styles.title}>Welcome to demo</Text>
       <View style={styles.inputView}>
         <TextInput
@@ -147,6 +166,7 @@ export default function LoginScreen(props: any) {
         style={styles.loginBtn}
       >
         <Text style={styles.loginText}>Log Out </Text>
+
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );

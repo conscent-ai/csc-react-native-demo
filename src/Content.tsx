@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import {
+    Alert,
     SafeAreaView,
     ScrollView,
     StyleSheet,
@@ -16,6 +17,7 @@ import {
     PayWall,
 } from 'csc-react-native-sdk';
 import { EventRegister } from 'react-native-event-listeners';
+import Toast from 'react-native-toast-message';
 
 export default function Content(props: any) {
     const paywallRef = useRef(null);
@@ -46,6 +48,11 @@ export default function Content(props: any) {
             const CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
                 "CONSCENT_MESSAGE",
                 (data) => {
+                    Toast.show({
+                        type: 'success',
+                        text1: `MESSAGE`,
+                        text2: `${data}`,
+                    });
                     console.log('Content CONSCENT_MESSAGE', data);
                 }
             );
@@ -55,12 +62,22 @@ export default function Content(props: any) {
                     if (data?.message === 'UNLOCK') {
                         setShowContent(true);
                     }
+                    Toast.show({
+                        type: 'success',
+                        text1: `SUCCESS`,
+                        text2: `${data?.message}`,
+                    });
                     console.log('Content CONSCENT_SUCCESS', data);
                 }
             );
             const CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
                 "CONSCENT_FAILURE",
                 (data) => {
+                    Toast.show({
+                        type: 'error',
+                        text1: `FAILURE`,
+                        text2: `${data?.message}`,
+                    });
                     console.warn('Content CONSCENT_FAILURE', data);
                 }
             );
@@ -89,7 +106,9 @@ export default function Content(props: any) {
     }
 
     return (
+
         <SafeAreaView style={styles.container}>
+
             <ScrollView
                 onScroll={(e) => {
                     setScrollY(e.nativeEvent.contentOffset.y);
@@ -123,7 +142,10 @@ export default function Content(props: any) {
                     <Text>{text[0] + '\n\n' + text[0] + '\n\n' + text[0]}</Text>
                 )}
             </ScrollView>
-
+            <Toast
+                position='top'
+                bottomOffset={20}
+            />
             <PayWall
                 ref={paywallRef}
                 clientId={clientId}
