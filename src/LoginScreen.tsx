@@ -47,7 +47,7 @@ export default function LoginScreen(props: any) {
           text1: `SUCCESS`,
           text2: `${data?.message}`,
         });
-        // console.log('LoginScreen CONSCENT_SUCCESS', data);
+        console.log('LoginScreen CONSCENT_SUCCESS', data);
       }
     );
     const CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
@@ -59,7 +59,7 @@ export default function LoginScreen(props: any) {
           text1: `FAILURE`,
           text2: `${data?.message}`,
         });
-        // console.warn('LoginScreen CONSCENT_FAILURE', data);
+        console.log('LoginScreen CONSCENT_FAILURE', data);
       }
     );
     return () => {
@@ -150,7 +150,7 @@ export default function LoginScreen(props: any) {
 
       <TouchableOpacity
         onPress={async () => {
-          await openUserProfile('LoginScreen', props.navigation, '')
+          await openUserProfile('LoginScreen', props.navigation,)
         }}
         style={styles.loginBtn}
       >

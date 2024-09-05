@@ -30,15 +30,6 @@ export default function Content(props: any) {
     ];
     const premiumContent = ['Content Unlock \n Read premium content'];
 
-
-    const conscentMessage = async (message: string) => {
-        // if (message == 'GoogleLoginClick') {
-        //     console.log('GoogleLoginClick');
-
-        //     // await loginWithOneTap('LoginScreen', props.navigation, '8765432123456787654321234567')
-        // }
-    };
-
     const goBack = () => {
         props?.navigation.goBack();
     }
