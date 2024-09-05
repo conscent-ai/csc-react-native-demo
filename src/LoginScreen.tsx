@@ -150,8 +150,7 @@ export default function LoginScreen(props: any) {
 
       <TouchableOpacity
         onPress={async () => {
-          // await loginWithOneTap('LoginScreen', props.navigation, '8765432123456787654321234567')
-          await openUserProfile('LoginScreen', props.navigation, '8765432123456787654321234567')
+          await openUserProfile('LoginScreen', props.navigation, '')
         }}
         style={styles.loginBtn}
       >
@@ -161,7 +160,6 @@ export default function LoginScreen(props: any) {
       <TouchableOpacity
         onPress={async () => {
           await logOut('LoginScreen', props?.navigation)
-          // Alert.alert(res?.data?.message);
         }}
         style={styles.loginBtn}
       >

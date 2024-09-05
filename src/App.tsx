@@ -7,8 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 //SCREENS
 import LoginScreen from './LoginScreen';
 import Content from './Content';
-import { ConscentWebView, StorageKeys } from 'csc-react-native-sdk';
-import { conscentLogger } from 'csc-react-native-sdk';
+import { ConscentWebView, StorageKeys, conscentLogger } from 'csc-react-native-sdk';
 
 export default function App() {
   const Stack = createStackNavigator();

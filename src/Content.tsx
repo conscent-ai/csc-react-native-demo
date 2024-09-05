@@ -65,7 +65,7 @@ export default function Content(props: any) {
                     Toast.show({
                         type: 'success',
                         text1: `SUCCESS`,
-                        text2: `${data?.message}`,
+                        text2: `${data?.message} ${data?.message?.accessType}`,
                     });
                     console.log('Content CONSCENT_SUCCESS', data);
                 }
