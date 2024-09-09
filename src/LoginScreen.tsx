@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
+    fontFamily: 'PlayfairDisplay-Regular',
     fontSize: 30,
     color: 'black',
     marginBottom: 40,
@@ -216,6 +217,7 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 16,
     color: 'white',
+    fontFamily: 'PlayfairDisplay-Regular',
   },
   shadow: {
     shadowColor: '#000',
