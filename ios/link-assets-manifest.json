@@ -2,12 +2,56 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/fonts/Arima-Regular.ttf",
+      "sha1": "b1efcb3917e8f1c03dcec78e821f57559ec68452"
+    },
+    {
+      "path": "assets/fonts/Eczar-Regular.ttf",
+      "sha1": "7c45c26ceb6f83d5d17c89e3a4b82f2b4265d028"
+    },
+    {
+      "path": "assets/fonts/Faustina-Regular.ttf",
+      "sha1": "64c94a96eb382a8b84a3c4e3bb2e7f924e1df4c8"
+    },
+    {
+      "path": "assets/fonts/HindMadurai-Regular.ttf",
+      "sha1": "7185e53c120fc664d57d945df617e0af4c1117d1"
+    },
+    {
+      "path": "assets/fonts/HindSiliguri-Regular.ttf",
+      "sha1": "1aa1c0b58701dc320b48eb98940418a644eea59f"
+    },
+    {
+      "path": "assets/fonts/Laila-Regular.ttf",
+      "sha1": "fab8dcdeacb178dd7a1eccc76768bd810b7d5f1d"
+    },
+    {
+      "path": "assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "bb895d19b8a1fbe1c57fc89cac5da82fdc8fdef4"
+    },
+    {
+      "path": "assets/fonts/NotoSans-Regular.ttf",
+      "sha1": "692393fb9239fe61e47dff7232400c45770f162f"
+    },
+    {
+      "path": "assets/fonts/NotoSansTamil-Regular.ttf",
+      "sha1": "9fdd9c0e0693fd540751f6854e6cd640108f0110"
+    },
+    {
+      "path": "assets/fonts/OpenSans-Regular.ttf",
+      "sha1": "76ea5d4c70539ad9b0e7faf7e4fbe3bae8a961c7"
+    },
+    {
       "path": "assets/fonts/PlayfairDisplay-Black.ttf",
       "sha1": "8447710fac88b58e7f3b6f034ceda7eb3a036f4c"
     },
     {
       "path": "assets/fonts/PlayfairDisplay-Regular.ttf",
       "sha1": "96a2e660869a872971935d18105d64eadd693ddb"
+    },
+    {
+      "path": "assets/fonts/Poppins-Regular.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
     }
   ]
 }

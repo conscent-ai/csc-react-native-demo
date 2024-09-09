@@ -24,7 +24,7 @@ export default function Content(props: any) {
     const paywallRef = useRef(null);
     const [scrollY, setScrollY] = useState(0);
     const [showContent, setShowContent] = useState(false);
-    const { contentId, clientId, mode } = props?.route?.params;
+    const { contentId, clientId, mode, fontFamily } = props?.route?.params;
     const [userAgent, setUserAgent] = useState('')
 
     useEffect(() => {
@@ -155,7 +155,7 @@ export default function Content(props: any) {
                     clientId={clientId}
                     contentId={contentId}
                     environment={mode}
-                    fontFamily={'PlayfairDisplay-Regular'}
+                    fontFamily={fontFamily}
                     userAgent={userAgent}
                     currentStackName={'Content'}
                     navigation={props?.navigation}

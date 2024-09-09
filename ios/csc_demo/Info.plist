@@ -70,6 +70,17 @@
 	<array>
 		<string>PlayfairDisplay-Black.ttf</string>
 		<string>PlayfairDisplay-Regular.ttf</string>
+		<string>Arima-Regular.ttf</string>
+		<string>Eczar-Regular.ttf</string>
+		<string>Faustina-Regular.ttf</string>
+		<string>HindMadurai-Regular.ttf</string>
+		<string>HindSiliguri-Regular.ttf</string>
+		<string>Laila-Regular.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>NotoSans-Regular.ttf</string>
+		<string>NotoSansTamil-Regular.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>Poppins-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

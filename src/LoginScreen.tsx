@@ -9,6 +9,9 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  ScrollView,
+  SafeAreaView,
+  StatusBar,
 } from 'react-native';
 
 //PACKAGES
@@ -22,6 +25,14 @@ export default function LoginScreen(props: any) {
   const [contentId, setContentId] = useState<string>('Client-Story-Id-1');
   const [mode, setMode] = useState<string>('SANDBOX');
   const environment = ['STAGING', 'SANDBOX', 'LIVE'];
+  const fontFamily = ['PlayfairDisplay-Regular',
+    'Poppins-Regular', 'OpenSans-Regular',
+    'Laila-Regular', 'Arima-Regular',
+    'Eczar-Regular', 'Faustina-Regular',
+    'HindMadurai-Regular', 'Montserrat-Regular',
+    'NotoSans-Regular', 'NotoSansTamil-Regular',
+  ];
+  const [getFontFamily, setFontFamily] = useState<string>('PlayfairDisplay-Regular');
 
   useEffect(() => {
     if (props?.route?.params) {
@@ -76,109 +87,142 @@ export default function LoginScreen(props: any) {
   });
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
-      <Image style={styles.logo} source={require('../assets/conscent.png')} />
-      <Toast
-        position='top'
-        bottomOffset={20}
-      />
-      <Text style={styles.title}>Welcome to demo</Text>
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.inputText}
-          value={clientId}
-          placeholder="Enter your clientId"
-          placeholderTextColor="#003f5c"
-          onChangeText={(text) => setClientId(text)}
+
+      <ScrollView style={styles.scrollView}>
+
+        <Image style={styles.logo} source={require('../assets/conscent.png')} />
+        <Toast
+          position='top'
+          bottomOffset={20}
         />
-      </View>
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.inputText}
-          value={contentId}
-          placeholder="Enter your contentId"
-          placeholderTextColor="#003f5c"
-          onChangeText={(text) => setContentId(text)}
+        <Text style={styles.title}>Welcome to demo</Text>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.inputText}
+            value={clientId}
+            placeholder="Enter your clientId"
+            placeholderTextColor="#003f5c"
+            onChangeText={(text) => setClientId(text)}
+          />
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.inputText}
+            value={contentId}
+            placeholder="Enter your contentId"
+            placeholderTextColor="#003f5c"
+            onChangeText={(text) => setContentId(text)}
+          />
+        </View>
+        <SelectDropdown
+          data={environment}
+          buttonStyle={styles.dropdown1BtnStyle}
+          buttonTextStyle={styles.dropdown1BtnTxtStyle}
+          dropdownIconPosition={'right'}
+          dropdownStyle={styles.dropdown1DropdownStyle}
+          rowStyle={styles.dropdown1RowStyle}
+          rowTextStyle={styles.dropdown1RowTxtStyle}
+          onSelect={(item) => {
+            setMode(item);
+          }}
+          buttonTextAfterSelection={(selectedItem: any) => {
+            // text represented after item is selected
+            // if data array is an array of objects then return selectedItem.property to render after item is selected
+            return selectedItem;
+          }}
+          defaultButtonText="SANDBOX"
+          rowTextForSelection={(item: any) => {
+            // text represented for each item in dropdown
+            // if data array is an array of objects then return item.property to represent item in dropdown
+            return item;
+          }}
         />
-      </View>
-      <SelectDropdown
-        data={environment}
-        buttonStyle={styles.dropdown1BtnStyle}
-        buttonTextStyle={styles.dropdown1BtnTxtStyle}
-        dropdownIconPosition={'right'}
-        dropdownStyle={styles.dropdown1DropdownStyle}
-        rowStyle={styles.dropdown1RowStyle}
-        rowTextStyle={styles.dropdown1RowTxtStyle}
-        onSelect={(item) => {
-          setMode(item);
-        }}
-        buttonTextAfterSelection={(selectedItem: any) => {
-          // text represented after item is selected
-          // if data array is an array of objects then return selectedItem.property to render after item is selected
-          return selectedItem;
-        }}
-        defaultButtonText="SANDBOX"
-        rowTextForSelection={(item: any) => {
-          // text represented for each item in dropdown
-          // if data array is an array of objects then return item.property to represent item in dropdown
-          return item;
-        }}
-      />
 
-      <TouchableOpacity
-        onPress={() => {
-          props.navigation.navigate('Content', {
-            contentId: contentId,
-            clientId: clientId,
-            mode: mode,
-          });
-        }}
-        style={styles.loginBtn}
-      >
-        <Text style={styles.loginText}>Show Content </Text>
-      </TouchableOpacity>
+        <SelectDropdown
+          data={fontFamily}
+          buttonStyle={styles.dropdown1BtnStyle}
+          buttonTextStyle={styles.dropdown1BtnTxtStyle}
+          dropdownIconPosition={'right'}
+          dropdownStyle={styles.dropdown1DropdownStyle}
+          rowStyle={styles.dropdown1RowStyle}
+          rowTextStyle={styles.dropdown1RowTxtStyle}
+          onSelect={(item) => {
+            setFontFamily(item);
+          }}
+          buttonTextAfterSelection={(selectedItem: any) => {
+            // text represented after item is selected
+            // if data array is an array of objects then return selectedItem.property to render after item is selected
+            return selectedItem;
+          }}
+          defaultButtonText="PlayfairDisplay-Regular"
+          rowTextForSelection={(item: any) => {
+            // text represented for each item in dropdown
+            // if data array is an array of objects then return item.property to represent item in dropdown
+            return item;
+          }}
+        />
 
-      <TouchableOpacity
-        onPress={async () => {
-          await login('LoginScreen', props.navigation)
-        }}
-        style={styles.loginBtn}
-      >
-        <Text style={styles.loginText}>Log In </Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate('Content', {
+              contentId: contentId,
+              clientId: clientId,
+              mode: mode,
+              fontFamily: getFontFamily
+            });
+          }}
+          style={styles.loginBtn}
+        >
+          <Text style={styles.loginText}>Show Content </Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={async () => {
-          await openUserProfile('LoginScreen', props.navigation,)
-        }}
-        style={styles.loginBtn}
-      >
-        <Text style={styles.loginText}>User Profile</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          onPress={async () => {
+            await login('LoginScreen', props.navigation)
+          }}
+          style={styles.loginBtn}
+        >
+          <Text style={styles.loginText}>Log In </Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={async () => {
-          await logOut('LoginScreen', props?.navigation)
-        }}
-        style={styles.loginBtn}
-      >
-        <Text style={styles.loginText}>Log Out </Text>
+        <TouchableOpacity
+          onPress={async () => {
+            await openUserProfile('LoginScreen', props.navigation,)
+          }}
+          style={styles.loginBtn}
+        >
+          <Text style={styles.loginText}>User Profile</Text>
+        </TouchableOpacity>
 
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
+        <TouchableOpacity
+          onPress={async () => {
+            await logOut('LoginScreen', props?.navigation)
+          }}
+          style={styles.loginBtn}
+        >
+          <Text style={styles.loginText}>Log Out </Text>
+
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 0,
+    paddingTop: StatusBar.currentHeight,
+  },
+  scrollView: {
+    flex: 1,
+    // marginHorizontal: 20,
+    width: '100%',
   },
   logo: {
-    margin: 20,
+    // margin: 30,
+    alignSelf: 'center'
   },
   title: {
     fontWeight: 'bold',
@@ -186,6 +230,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'black',
     marginBottom: 40,
+    margin: 10,
+    alignSelf: 'center'
   },
   inputView: {
     width: '80%',
@@ -195,6 +241,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     justifyContent: 'center',
     padding: 20,
+    // margin: 10,
+    alignSelf: 'center'
   },
   inputText: {
     height: 50,
@@ -213,6 +261,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 40,
     marginBottom: 10,
+    alignSelf: 'center'
   },
   loginText: {
     fontSize: 16,
@@ -260,6 +309,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#444',
+    margin: 10,
+    alignSelf: 'center'
   },
   dropdown1BtnTxtStyle: {
     color: '#444',

@@ -18,6 +18,17 @@
 		AF38063B2C49449B0030EC4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF38063A2C49449B0030EC4C /* GoogleService-Info.plist */; };
 		F5F3ACAEBFF34A96B2B48649 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCD08744571F4AB482FEABC6 /* PlayfairDisplay-Black.ttf */; };
 		237B4E0A9C5640B7829C5DB4 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A70E9DEF1B224316B939D1F3 /* PlayfairDisplay-Regular.ttf */; };
+		70AC8B77C62045D9B9FA4BA2 /* Arima-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE2E97ECA824EC2B3DA6C2B /* Arima-Regular.ttf */; };
+		E515AD39266143298590109C /* Eczar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB1AC2AC93AF4697A6BDFA05 /* Eczar-Regular.ttf */; };
+		CF54863A8143432484BAE107 /* Faustina-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 422ED5981E4B44978C19B5E3 /* Faustina-Regular.ttf */; };
+		B0E33C17454C4434A78D5F0A /* HindMadurai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80CAB89DBA6F4D5DAFD7D7FA /* HindMadurai-Regular.ttf */; };
+		6FAB1C3F042241F8AB567016 /* HindSiliguri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42B60878DA124368A4A8C46B /* HindSiliguri-Regular.ttf */; };
+		492D596BDCC14CD8A524723E /* Laila-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9EB044D43C34409AEA542A9 /* Laila-Regular.ttf */; };
+		4B9259AC2F09463EAB58DE02 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85C6AFCD619D442DA43F08DA /* Montserrat-Regular.ttf */; };
+		8C2D105166EE4B339CF9FBD5 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9749979E79460480642C8E /* NotoSans-Regular.ttf */; };
+		9F737EF1CECA492CB512E7B1 /* NotoSansTamil-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F28CE693BC13479CB9E20694 /* NotoSansTamil-Regular.ttf */; };
+		AA23BB21A0F246D882DB3484 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A98F1AAC39BC4B67AEA4519D /* OpenSans-Regular.ttf */; };
+		54321D6B83054900A0CC5E0F /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD4D9C547B4541C0BB8A3C97 /* Poppins-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +64,17 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FCD08744571F4AB482FEABC6 /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Black.ttf"; path = "../assets/fonts/PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A70E9DEF1B224316B939D1F3 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Regular.ttf"; path = "../assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4CE2E97ECA824EC2B3DA6C2B /* Arima-Regular.ttf */ = {isa = PBXFileReference; name = "Arima-Regular.ttf"; path = "../assets/fonts/Arima-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AB1AC2AC93AF4697A6BDFA05 /* Eczar-Regular.ttf */ = {isa = PBXFileReference; name = "Eczar-Regular.ttf"; path = "../assets/fonts/Eczar-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		422ED5981E4B44978C19B5E3 /* Faustina-Regular.ttf */ = {isa = PBXFileReference; name = "Faustina-Regular.ttf"; path = "../assets/fonts/Faustina-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		80CAB89DBA6F4D5DAFD7D7FA /* HindMadurai-Regular.ttf */ = {isa = PBXFileReference; name = "HindMadurai-Regular.ttf"; path = "../assets/fonts/HindMadurai-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		42B60878DA124368A4A8C46B /* HindSiliguri-Regular.ttf */ = {isa = PBXFileReference; name = "HindSiliguri-Regular.ttf"; path = "../assets/fonts/HindSiliguri-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C9EB044D43C34409AEA542A9 /* Laila-Regular.ttf */ = {isa = PBXFileReference; name = "Laila-Regular.ttf"; path = "../assets/fonts/Laila-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		85C6AFCD619D442DA43F08DA /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2D9749979E79460480642C8E /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; name = "NotoSans-Regular.ttf"; path = "../assets/fonts/NotoSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F28CE693BC13479CB9E20694 /* NotoSansTamil-Regular.ttf */ = {isa = PBXFileReference; name = "NotoSansTamil-Regular.ttf"; path = "../assets/fonts/NotoSansTamil-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A98F1AAC39BC4B67AEA4519D /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AD4D9C547B4541C0BB8A3C97 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +188,17 @@
 			children = (
 				FCD08744571F4AB482FEABC6 /* PlayfairDisplay-Black.ttf */,
 				A70E9DEF1B224316B939D1F3 /* PlayfairDisplay-Regular.ttf */,
+				4CE2E97ECA824EC2B3DA6C2B /* Arima-Regular.ttf */,
+				AB1AC2AC93AF4697A6BDFA05 /* Eczar-Regular.ttf */,
+				422ED5981E4B44978C19B5E3 /* Faustina-Regular.ttf */,
+				80CAB89DBA6F4D5DAFD7D7FA /* HindMadurai-Regular.ttf */,
+				42B60878DA124368A4A8C46B /* HindSiliguri-Regular.ttf */,
+				C9EB044D43C34409AEA542A9 /* Laila-Regular.ttf */,
+				85C6AFCD619D442DA43F08DA /* Montserrat-Regular.ttf */,
+				2D9749979E79460480642C8E /* NotoSans-Regular.ttf */,
+				F28CE693BC13479CB9E20694 /* NotoSansTamil-Regular.ttf */,
+				A98F1AAC39BC4B67AEA4519D /* OpenSans-Regular.ttf */,
+				AD4D9C547B4541C0BB8A3C97 /* Poppins-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -270,6 +303,17 @@
 				156F2C71FB30B593CDEAF901 /* PrivacyInfo.xcprivacy in Resources */,
 				F5F3ACAEBFF34A96B2B48649 /* PlayfairDisplay-Black.ttf in Resources */,
 				237B4E0A9C5640B7829C5DB4 /* PlayfairDisplay-Regular.ttf in Resources */,
+				70AC8B77C62045D9B9FA4BA2 /* Arima-Regular.ttf in Resources */,
+				E515AD39266143298590109C /* Eczar-Regular.ttf in Resources */,
+				CF54863A8143432484BAE107 /* Faustina-Regular.ttf in Resources */,
+				B0E33C17454C4434A78D5F0A /* HindMadurai-Regular.ttf in Resources */,
+				6FAB1C3F042241F8AB567016 /* HindSiliguri-Regular.ttf in Resources */,
+				492D596BDCC14CD8A524723E /* Laila-Regular.ttf in Resources */,
+				4B9259AC2F09463EAB58DE02 /* Montserrat-Regular.ttf in Resources */,
+				8C2D105166EE4B339CF9FBD5 /* NotoSans-Regular.ttf in Resources */,
+				9F737EF1CECA492CB512E7B1 /* NotoSansTamil-Regular.ttf in Resources */,
+				AA23BB21A0F246D882DB3484 /* OpenSans-Regular.ttf in Resources */,
+				54321D6B83054900A0CC5E0F /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
