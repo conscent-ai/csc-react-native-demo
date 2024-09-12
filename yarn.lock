@@ -3250,10 +3250,10 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-csc-react-native-sdk@^2.0.0-beta.12:
-  version "2.0.0-beta.12"
-  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.0.0-beta.12.tgz"
-  integrity sha512-xZ3kbrBVn4gDWHVCkIYRgS9Vl7bkJWsI7Y9bMClga6AbGJSN2ql9C5s8QTujDDG30UHyWlvZf0r0UIDjmx2lww==
+csc-react-native-sdk@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.0.1.tgz"
+  integrity sha512-MfBe/Zo95n6J1hKkQ9//JwZw9FJK5OuIAjK3DzMe8OBRRHzmZTAba8c758DsStWr5iJWsyqFIRKUSRki1MQirw==
   dependencies:
     "@react-native-async-storage/async-storage" "^1.19.3"
     core-js "^3.37.1"
