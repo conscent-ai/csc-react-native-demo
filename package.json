@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@react-native-google-signin/google-signin": "^12.2.1",
-    "csc-react-native-sdk": "^2.0.1",
+    "csc-react-native-sdk": "^2.0.2",
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-toast-message": "^2.2.0"
