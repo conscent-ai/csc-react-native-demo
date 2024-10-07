@@ -7,7 +7,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 //SCREENS
 import LoginScreen from './LoginScreen';
 import Content from './Content';
-import { ConscentWebView, StorageKeys, conscentLogger } from 'csc-react-native-sdk';
+import { StorageKeys, ConscentWebView } from 'csc-react-native-sdk-test';
+import { conscentLogger } from 'csc-react-native-sdk-test';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -20,7 +21,7 @@ export default function App() {
     enableAllLog: true,
     enableError: true,
     enableWarn: true, // Disable warnings
-    environment: 'development',
+    logEnvironment: 'development',
   });
 
   return (

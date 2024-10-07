@@ -10,12 +10,7 @@ import {
 
 //PACKAGES
 import { useFocusEffect } from '@react-navigation/native';
-import {
-    pageExist,
-    getEventsEnvDetails,
-    PopUp,
-    PayWall,
-} from 'csc-react-native-sdk';
+import { getEventsEnvDetails, pageExist, PayWall, PopUp } from 'csc-react-native-sdk-test';
 import { EventRegister } from 'react-native-event-listeners';
 import Toast from 'react-native-toast-message';
 import DeviceInfo from 'react-native-device-info';
@@ -154,9 +149,18 @@ export default function Content(props: any) {
                     ref={paywallRef}
                     clientId={clientId}
                     contentId={contentId}
-                    environment={mode}
-                    fontFamily={fontFamily}
-                    userAgent={userAgent}
+                    title={contentId}
+                    contentUrl={'https://mock-client-demo-blog-v2-sandbox.netlify.app/business/b1'}
+                    authorName={'name'}
+                    publicationDate={'2024-07-17T11:57:27.312Z'}
+                    categories={['category1', 'category2']}
+                    tags={['free', 'premium', 'metered']}
+                    sections={['section1', 'section2', 'section3']}
+                    apiEnv={mode}
+                    fontFamily={'PlayfairDisplay-Regular'}
+                    userAgent={
+                        'Dalvik/2.1.0 (Linux; U; Android 12; RMX2121 Build/SP1A.210812.016'
+                    }
                     currentStackName={'Content'}
                     navigation={props?.navigation}
                     scrollY={scrollY}

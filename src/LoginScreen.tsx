@@ -16,7 +16,7 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { logOut, login, openUserProfile } from 'csc-react-native-sdk';
+import { appleSignIn, googleSignIn, login, logOut, openUserProfile } from 'csc-react-native-sdk-test';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
 

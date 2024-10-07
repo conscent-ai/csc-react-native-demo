@@ -11,10 +11,22 @@
   },
   "dependencies": {
     "@react-native-google-signin/google-signin": "^12.2.1",
-    "csc-react-native-sdk": "^2.0.2",
+    "csc-react-native-sdk-test": "^2.0.5-beta.1",
     "react": "18.2.0",
     "react-native": "0.74.3",
-    "react-native-toast-message": "^2.2.0"
+    "react-native-toast-message": "^2.2.0",
+    "@react-native/babel-preset": "^0.75.3",
+    "@react-native-async-storage/async-storage": "^1.19.3",
+    "core-js": "^3.37.1",
+    "jwt-decode": "^4.0.0",
+    "react-native-base64": "^0.2.1",
+    "react-native-device-info": "^10.12.0",
+    "react-native-event-listeners": "^1.0.7",
+    "react-native-gesture-handler": "^2.14.0",
+    "react-native-keyboard-manager": "^6.5.11-2",
+    "react-native-keyboard-spacer": "^0.4.1",
+    "react-native-uuid": "^2.0.1",
+    "react-native-webview": "^13.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
