@@ -157,7 +157,7 @@ export default function Content(props: any) {
                     tags={['free', 'premium', 'metered']}
                     sections={['section1', 'section2', 'section3']}
                     apiEnv={mode}
-                    fontFamily={'PlayfairDisplay-Regular'}
+                    fontFamily={fontFamily}
                     userAgent={
                         'Dalvik/2.1.0 (Linux; U; Android 12; RMX2121 Build/SP1A.210812.016'
                     }
