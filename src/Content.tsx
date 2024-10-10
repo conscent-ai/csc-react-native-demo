@@ -18,6 +18,7 @@ import {
     MeterBanner,
 } from 'csc-react-native-sdk-test';
 import { EventRegister } from 'react-native-event-listeners';
+import Toast from 'react-native-toast-message';
 
 export default function Content(props: any) {
     const paywallRef = useRef(null);
@@ -46,6 +47,11 @@ export default function Content(props: any) {
             let CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
                 "CONSCENT_SUCCESS" as string,
                 (data) => {
+                    Toast.show({
+                        type: 'success',
+                        text1: `SUCCESS`,
+                        text2: `${data?.message}`,
+                    });
                     if (data?.message === 'UNLOCK') {
                         setShowContent(true);
                     }
@@ -55,6 +61,11 @@ export default function Content(props: any) {
             let CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
                 "CONSCENT_FAILURE" as string,
                 (data) => {
+                    Toast.show({
+                        type: 'error',
+                        text1: `FAILURE`,
+                        text2: `${data?.message}`,
+                    });
                     console.warn('Content CONSCENT_FAILURE', data);
                 }
             );
@@ -94,7 +105,7 @@ export default function Content(props: any) {
                     <View style={{ zIndex: 1050 }}>
                         <PayWall
                             ref={paywallRef}
-                            clientId={clientId}
+                            clientId={'66cdad650aa6d0b6dda7b47e'}
                             contentId={contentId}
                             title={contentId}
                             contentUrl={'https://mock-client-demo-blog-v2-sandbox.netlify.app/business/b1'}
