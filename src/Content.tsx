@@ -105,7 +105,7 @@ export default function Content(props: any) {
                     <View style={{ zIndex: 1050 }}>
                         <PayWall
                             ref={paywallRef}
-                            clientId={'66cdad650aa6d0b6dda7b47e'}
+                            clientId={clientId}
                             contentId={contentId}
                             title={contentId}
                             contentUrl={'https://mock-client-demo-blog-v2-sandbox.netlify.app/business/b1'}
