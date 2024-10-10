@@ -91,7 +91,7 @@ export default function Content(props: any) {
             >
                 <View>
                     <Text>{text[0]}</Text>
-                    <View>
+                    <View style={{ zIndex: 1050 }}>
                         <PayWall
                             ref={paywallRef}
                             clientId={clientId}
