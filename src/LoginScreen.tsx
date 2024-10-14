@@ -21,7 +21,7 @@ import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
 
 export default function LoginScreen(props: any) {
-  const [clientId, setClientId] = useState<string>('661907c2487ae1aba956dcc4');
+  const [clientId, setClientId] = useState<string>('66cdad650aa6d0b6dda7b47e');
   const [contentId, setContentId] = useState<string>('Client-Story-Id-1');
   const [mode, setMode] = useState<string>('SANDBOX');
   const environment = ['STAGING', 'SANDBOX', 'LIVE'];

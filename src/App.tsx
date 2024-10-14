@@ -11,7 +11,7 @@ import { ConscentWebView, StorageKeys, conscentLogger } from 'csc-react-native-s
 
 export default function App() {
   const Stack = createStackNavigator();
-  AsyncStorage.setItem(StorageKeys.ClientId, '661907c2487ae1aba956dcc4')
+  AsyncStorage.setItem(StorageKeys.ClientId, '66cdad650aa6d0b6dda7b47e')
   AsyncStorage.setItem(StorageKeys.ApiEnv, 'SANDBOX')
 
   // Configure the logger
@@ -20,7 +20,7 @@ export default function App() {
     enableAllLog: true,
     enableError: true,
     enableWarn: true, // Disable warnings
-    environment: 'development',
+    logEnvironment: 'development',
   });
 
   return (

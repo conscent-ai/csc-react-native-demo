@@ -6,6 +6,7 @@ import {
     ScrollView,
     StyleSheet,
     Text,
+    View,
 } from 'react-native';
 
 //PACKAGES
@@ -15,6 +16,7 @@ import {
     getEventsEnvDetails,
     PopUp,
     PayWall,
+    MeterBanner,
 } from 'csc-react-native-sdk';
 import { EventRegister } from 'react-native-event-listeners';
 import Toast from 'react-native-toast-message';
@@ -111,52 +113,72 @@ export default function Content(props: any) {
     return (
 
         <SafeAreaView style={styles.container}>
-
             <ScrollView
                 onScroll={(e) => {
                     setScrollY(e.nativeEvent.contentOffset.y);
                 }}
             >
-                {showContent ? (
-                    <Text>
-                        {premiumContent[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0] +
-                            '\n\n' +
-                            text[0]}
-                    </Text>
-                ) : (
-                    <Text>{text[0] + '\n\n' + text[0] + '\n\n' + text[0]}</Text>
-                )}
+
+                <View>
+                    <Text>{text[0]}</Text>
+                    <Toast
+                        position='top'
+                        bottomOffset={20}
+                    />
+                    <View>
+                        <PayWall
+                            ref={paywallRef}
+                            clientId={clientId}
+                            contentId={contentId}
+                            title={contentId}
+                            contentUrl={'https://mock-client-demo-blog-v2-sandbox.netlify.app/business/b1'}
+                            authorName={'name'}
+                            publicationDate={'2024-07-17T11:57:27.312Z'}
+                            categories={['category1', 'category2']}
+                            tags={['free', 'premium', 'metered']}
+                            sections={['section1', 'section2', 'section3']}
+                            apiEnv={mode}
+                            fontFamily={fontFamily}
+                            userAgent={
+                                'Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+                            }
+                            currentStackName={'Content'}
+                            navigation={props?.navigation}
+                            scrollY={scrollY}
+                            goBack={() => {
+                                goBack();
+                            }}
+                        />
+                    </View>
+                    {
+                        showContent ? <><Text style={{ color: 'green', fontWeight: 900 }}>{premiumContent[0]}</Text>
+                            <Text>{text[0]}</Text>
+                            <Text>{text[0]}</Text>
+                            <Text>{text[0]}</Text></> :
+                            <><Text>{text[0]}</Text></>
+                    }
+
+                </View>
+
             </ScrollView>
-            <Toast
-                position='top'
-                bottomOffset={20}
-            />
-            {userAgent && (
-                <PayWall
+
+            <View>
+                <MeterBanner
                     ref={paywallRef}
                     clientId={clientId}
                     contentId={contentId}
-                    environment={mode}
+                    title={contentId}
+                    contentUrl={'https://mock-client-demo-blog-v2-sandbox.netlify.app/business/b1'}
+                    authorName={'name'}
+                    publicationDate={'2024-07-17T11:57:27.312Z'}
+                    categories={['category1', 'category2']}
+                    tags={['free', 'premium', 'metered']}
+                    sections={['section1', 'section2', 'section3']}
+                    apiEnv={mode}
                     fontFamily={fontFamily}
-                    userAgent={userAgent}
+                    userAgent={
+                        'Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+                    }
                     currentStackName={'Content'}
                     navigation={props?.navigation}
                     scrollY={scrollY}
@@ -164,9 +186,9 @@ export default function Content(props: any) {
                         goBack();
                     }}
                 />
-            )}
+            </View>
             <PopUp
-                environment={mode}
+                apiEnv={mode}
                 currentStackName={'Content'}
                 navigation={props?.navigation}
                 scrollY={scrollY}
