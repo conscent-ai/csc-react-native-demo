@@ -14,7 +14,7 @@
     "@react-native-google-signin/google-signin": "^12.2.1",
     "@react-native/babel-preset": "^0.75.3",
     "core-js": "^3.37.1",
-    "csc-react-native-sdk-test": "^2.0.11",
+    "csc-react-native-sdk-test": "^2.0.12",
     "jwt-decode": "^4.0.0",
     "react": "18.2.0",
     "react-native": "0.74.3",
