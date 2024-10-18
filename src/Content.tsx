@@ -102,6 +102,10 @@ export default function Content(props: any) {
             >
                 <View>
                     <Text>{text[0]}</Text>
+                    <Toast
+                        position='top'
+                        bottomOffset={20}
+                    />
                     <View style={{ zIndex: 1050 }}>
                         <PayWall
                             ref={paywallRef}
@@ -127,9 +131,13 @@ export default function Content(props: any) {
                             }}
                         />
                     </View>
-                    <Text>{text[0]}</Text>
-                    <Text>{text[0]}</Text>
-                    <Text>{text[0]}</Text>
+                    {
+                        showContent ? <><Text style={{ color: 'green', fontWeight: 900 }}>{premiumContent[0]}</Text>
+                            <Text>{text[0]}</Text>
+                            <Text>{text[0]}</Text>
+                            <Text>{text[0]}</Text></> :
+                            <><Text>{text[0]}</Text></>
+                    }
                 </View>
 
             </ScrollView>
