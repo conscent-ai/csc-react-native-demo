@@ -16,7 +16,7 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { appleSignIn, googleSignIn, login, logOut, openUserProfile } from 'csc-react-native-sdk-test';
+import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails } from 'csc-react-native-sdk';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
 
@@ -43,7 +43,18 @@ export default function LoginScreen(props: any) {
     }
   }, [props?.route?.params]);
 
+  async function getUser() {
+    const userdetails = await getUserDetails();
+    console.log('userdetails ==>>>', userdetails);
+    Toast.show({
+      type: 'success',
+      text1: `SUCCESS`,
+      text2: `${userdetails?.data}`,
+    });
+  }
+
   useEffect(() => {
+    getUser()
     const CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
       "CONSCENT_MESSAGE",
       (data) => {
@@ -86,6 +97,12 @@ export default function LoginScreen(props: any) {
       }
     };
   });
+
+  function gooleSignInBtn() {
+    console.log("gooleSignInBtn");
+    ccGooleSignIn('LoginScreen', props.navigation)
+    ccAppleSignIn('LoginScreen', props.navigation)
+  }
 
   return (
     <SafeAreaView style={styles.container}>

@@ -16,7 +16,7 @@ import {
     PopUp,
     PayWall,
     MeterBanner,
-} from 'csc-react-native-sdk-test';
+} from 'csc-react-native-sdk';
 import { EventRegister } from 'react-native-event-listeners';
 import Toast from 'react-native-toast-message';
 
