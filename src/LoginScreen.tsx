@@ -54,9 +54,7 @@ export default function LoginScreen(props: any) {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      getUser()
-    }, 500);
+    getUser()
 
     const CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
       "CONSCENT_MESSAGE",
