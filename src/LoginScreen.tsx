@@ -54,7 +54,10 @@ export default function LoginScreen(props: any) {
   }
 
   useEffect(() => {
-    getUser()
+    setTimeout(() => {
+      getUser()
+    }, 500);
+
     const CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
       "CONSCENT_MESSAGE",
       (data) => {
@@ -96,7 +99,7 @@ export default function LoginScreen(props: any) {
         EventRegister.removeEventListener(CONSCENT_FAILURE_LISTENER);
       }
     };
-  });
+  }, []);
 
   function gooleSignInBtn() {
     console.log("gooleSignInBtn");
