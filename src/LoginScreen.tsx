@@ -16,9 +16,10 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails } from 'csc-react-native-sdk';
+import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, loginWithOneTap, conscentLogger } from 'csc-react-native-sdk-test';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
+import { AccessToken, LoginManager } from 'react-native-fbsdk-next';
 
 export default function LoginScreen(props: any) {
   const [clientId, setClientId] = useState<string>('66cdad650aa6d0b6dda7b47e');
@@ -103,6 +104,42 @@ export default function LoginScreen(props: any) {
     console.log("gooleSignInBtn");
     ccGooleSignIn('LoginScreen', props.navigation)
     ccAppleSignIn('LoginScreen', props.navigation)
+  }
+
+
+  const handleCustomLogin = () => {
+    LoginManager.logInWithPermissions(['public_profile', 'email']).then(
+      result => {
+        if (result.isCancelled) {
+          console.log('Login cancelled Conclusion');
+        } else {
+          AccessToken.getCurrentAccessToken().then(data => {
+            // getUserInfo(data.accessToken.toString());
+            console.log('User Data ', data);
+            loginWithFacebook('LoginScreen', props?.navigation, data?.accessToken)
+          });
+        }
+      },
+      error => {
+        console.error(error);
+      },
+    );
+  };
+  async function loginWithFacebook(
+    currentStackName: string,
+    navigation: any,
+    token: string = '',
+  ) {
+
+
+    const url = `https://user-v2.conscent.art/login?redirectUrl=https://conscent-app-sdk&clientId=66cdad650aa6d0b6dda7b47e&mobileView=true&facebook_id_token=${token}&deviceCategory=ANDROID`;
+    conscentLogger.log(url);
+
+    navigation.navigate('ConscentWebView', {
+      REDIRECT_URL: url,
+      currentStackName: currentStackName,
+      merge: true,
+    });
   }
 
   return (
