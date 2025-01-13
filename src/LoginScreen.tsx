@@ -16,7 +16,7 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails } from 'csc-react-native-sdk';
+import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, getProducts, getSubscriptions } from 'csc-react-native-sdk-test';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
 
@@ -104,6 +104,16 @@ export default function LoginScreen(props: any) {
     ccGooleSignIn('LoginScreen', props.navigation)
     ccAppleSignIn('LoginScreen', props.navigation)
   }
+
+  const handleGetProducts = async () => {
+    try {
+      const data = await getSubscriptions({ skus: ['conscent_product_id_1_m'] });
+      console.log('product ==>>', data);
+
+    } catch (error) {
+      console.log({ message: 'handleGetProducts', error });
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -199,7 +209,8 @@ export default function LoginScreen(props: any) {
 
         <TouchableOpacity
           onPress={async () => {
-            await login('LoginScreen', props.navigation)
+            // await login('LoginScreen', props.navigation)
+            await handleGetProducts()
           }}
           style={styles.loginBtn}
         >

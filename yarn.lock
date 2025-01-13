@@ -3261,10 +3261,10 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-csc-react-native-sdk@^2.1.7:
-  version "2.1.7"
-  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.1.7.tgz"
-  integrity sha512-zOWuNA0c3839BnlVvF4jsjkAJGUSq4cE162AZNGQDKyJt0B8Lr2KWZkXJkyC8bDGguKXhXYTNTI2agCoVz/REA==
+csc-react-native-sdk-test@^2.2.8:
+  version "2.2.8"
+  resolved "https://registry.npmjs.org/csc-react-native-sdk-test/-/csc-react-native-sdk-test-2.2.8.tgz"
+  integrity sha512-0T3z9+ZRH73cuofIPHQSFo+6O/8eAdFXsmT6GKwcWLyleW1To6JdaI6gTTGsO9YN7D88abjNdkVYCleYaIeMGQ==
   dependencies:
     "@jeremybarbet/apple-api-types" "^1.4.1"
     "@react-native-async-storage/async-storage" "^1.19.3"
