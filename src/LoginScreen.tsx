@@ -16,9 +16,10 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, getProducts, getSubscriptions } from 'csc-react-native-sdk-test';
+import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, getProducts, getSubscriptions, requestPurchase } from 'csc-react-native-sdk-test';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
+import { veriftRecieptData } from './cciap';
 
 export default function LoginScreen(props: any) {
   const [clientId, setClientId] = useState<string>('66cdad650aa6d0b6dda7b47e');
@@ -109,6 +110,18 @@ export default function LoginScreen(props: any) {
     try {
       const data = await getSubscriptions({ skus: ['conscent_product_id_1_m'] });
       console.log('product ==>>', data);
+      const purchase = await requestPurchase({ skus: ['conscent_product_id_1_m'] });
+      console.log('product ==>>', purchase);
+
+
+      await veriftRecieptData(purchase, '677b84bed21acc713d513b5b', '6733212e6b6e5758278f4414', {
+        onPurchaseError: (error) => {
+          console.log({ message: 'handleGetProducts', error });
+        },
+        onPurchaseCompleted: (response) => {
+          console.log({ message: 'handleGetProducts', response });
+        }
+      });
 
     } catch (error) {
       console.log({ message: 'handleGetProducts', error });

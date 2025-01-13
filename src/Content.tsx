@@ -121,7 +121,7 @@ export default function Content(props: any) {
                             apiEnv={mode}
                             fontFamily={fontFamily}
                             userAgent={
-                                'Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+                                'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36'
                             }
                             currentStackName={'Content'}
                             navigation={props?.navigation}
