@@ -167,8 +167,8 @@ export const veriftRecieptData = async (product: void | ProductPurchase | Produc
             autoRenewing: true,
             acknowledged: false
         },
-        subScriptionId: "6785fdc03cfb40b0c780953a",
-        tierId: "6735212e6b6e5758278f4414",
+        subScriptionId: subScriptionId,
+        tierId: tierId,
         type: "SUBSCRIPTION"
     })
     try {
@@ -185,8 +185,6 @@ export const veriftRecieptData = async (product: void | ProductPurchase | Produc
         const result = await response.json();
 
         conscentLogger.allLog('backend response ==>>', result);
-        conscentLogger.allLog('backend response ==>>', body);
-        conscentLogger.allLog('backend response ==>>', accessToken);
         if (response.status == 201) {
             apiCallbacks.onPurchaseCompleted?.(result)
         } else {

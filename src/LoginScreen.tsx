@@ -114,7 +114,7 @@ export default function LoginScreen(props: any) {
       console.log('product ==>>', purchase);
 
 
-      await veriftRecieptData(purchase, '677b84bed21acc713d513b5b', '6733212e6b6e5758278f4414', {
+      await veriftRecieptData(purchase, '6785fdc03cfb40b0c780953a', '6733212e6b6e5758278f4414', {
         onPurchaseError: (error) => {
           console.log({ message: 'handleGetProducts', error });
         },
