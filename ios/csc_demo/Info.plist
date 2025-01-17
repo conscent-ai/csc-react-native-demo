@@ -42,6 +42,8 @@
 		</array>
 		<key>FacebookAppID</key>
 		<string>451670000858184</string>
+		<key>FacebookClientToken</key>
+		<string>e7081219432d2049c5189d64b19cae93</string>
 		<key>FacebookDisplayName</key>
 		<string>Conscent.ai</string>
 		<key>GIDClientID</key>
@@ -88,6 +90,23 @@
 			<string>NotoSansTamil-Regular.ttf</string>
 			<string>OpenSans-Regular.ttf</string>
 			<string>Poppins-Regular.ttf</string>
+		</array>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>fbapi</string>
+			<string>fbapi20130214</string>
+			<string>fbapi20130410</string>
+			<string>fbapi20130702</string>
+			<string>fbapi20131010</string>
+			<string>fbapi20131219</string>
+			<string>fbapi20140410</string>
+			<string>fbapi20140116</string>
+			<string>fbapi20150313</string>
+			<string>fbapi20150629</string>
+			<string>fbauth</string>
+			<string>fb-messenger-share-api</string>
+			<string>fbauth2</string>
+			<string>fbshareextension</string>
 		</array>
 	</dict>
 </plist>
