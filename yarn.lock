@@ -3039,10 +3039,10 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-csc-react-native-sdk@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.1.6.tgz"
-  integrity sha512-i4Yphtx789fJU2Nh6xDFmOA2JxZ2ShznEpw71uV1iEErDHl8YSUdoqf6YtcJl9T0Voc9S8em+Rww41F4033sUQ==
+csc-react-native-sdk-test@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.npmjs.org/csc-react-native-sdk-test/-/csc-react-native-sdk-test-2.3.5.tgz"
+  integrity sha512-4boCB56SFqtwEBPX3mWvkZASrYRKy06L33v/6cxZGGMOAV1ILC60JbaF4T1gDmSvcWGgWAPkkvvvPxfyRbHY7Q==
   dependencies:
     "@jeremybarbet/apple-api-types" "^1.4.1"
     "@react-native-async-storage/async-storage" "^1.19.3"
