@@ -3261,18 +3261,19 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-csc-react-native-sdk@^2.1.7:
-  version "2.1.7"
-  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.1.7.tgz"
-  integrity sha512-zOWuNA0c3839BnlVvF4jsjkAJGUSq4cE162AZNGQDKyJt0B8Lr2KWZkXJkyC8bDGguKXhXYTNTI2agCoVz/REA==
+csc-react-native-sdk@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.1.9.tgz"
+  integrity sha512-YdQ30OVZoGhzARixiHVLq70QnGlSwOHolWfL/bVyemFTfaATPBuHYLz1lDwjR4w/9d+a7jURTXsGOOk++vJ+lQ==
   dependencies:
     "@jeremybarbet/apple-api-types" "^1.4.1"
     "@react-native-async-storage/async-storage" "^1.19.3"
     "@react-native/babel-preset" "^0.75.3"
+    jwt-decode "^4.0.0"
     react-native-base64 "^0.2.1"
     react-native-device-info "^10.12.0"
     react-native-event-listeners "^1.0.7"
-    react-native-fbsdk-next "^13.1.4"
+    react-native-fbsdk-next "^13.3.0"
     react-native-gesture-handler "^2.14.0"
     react-native-keyboard-manager "^6.5.11-2"
     react-native-keyboard-spacer "^0.4.1"
@@ -6511,10 +6512,10 @@ react-native-event-listeners@^1.0.7:
   dependencies:
     type-detect "^4.0.8"
 
-react-native-fbsdk-next@^13.1.4:
-  version "13.3.0"
-  resolved "https://registry.npmjs.org/react-native-fbsdk-next/-/react-native-fbsdk-next-13.3.0.tgz"
-  integrity sha512-t2HTHx77yB6Awj6VZpCbEslmRBEgSxqqGM85Jg6t1d1kupho4b3iX2hgR/mfDzjWAqoXnZIAkvN4tNnGTWc7KA==
+react-native-fbsdk-next@^13.3.0, react-native-fbsdk-next@^13.4.0:
+  version "13.4.0"
+  resolved "https://registry.npmjs.org/react-native-fbsdk-next/-/react-native-fbsdk-next-13.4.0.tgz"
+  integrity sha512-ygDfgGWGPEXBCvVv6wuC8r+St1fmCESxikibpqyFqFONwNypt024ji9E8vOOxzxNOoOP/SqQBczV/+qHHd56mg==
 
 react-native-gesture-handler@^2.14.0, "react-native-gesture-handler@>= 1.0.0", react-native-gesture-handler@~2.16.1:
   version "2.16.2"

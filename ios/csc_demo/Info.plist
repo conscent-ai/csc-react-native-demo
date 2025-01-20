@@ -27,6 +27,7 @@
 				<string>Editor</string>
 				<key>CFBundleURLSchemes</key>
 				<array>
+					<string>fb451670000858184</string>
 					<string>org.reactjs.native.example.csc-demo</string>
 				</array>
 			</dict>
@@ -39,11 +40,14 @@
 				</array>
 			</dict>
 		</array>
-
-		<!-- Add GIDClientID for Google Sign-In -->
+		<key>FacebookAppID</key>
+		<string>451670000858184</string>
+		<key>FacebookClientToken</key>
+		<string>e7081219432d2049c5189d64b19cae93</string>
+		<key>FacebookDisplayName</key>
+		<string>Conscent.ai</string>
 		<key>GIDClientID</key>
 		<string>784024490654-8k1g0kunb509qsbae5c1fndjs51j4c78.apps.googleusercontent.com</string>
-
 		<key>CFBundleVersion</key>
 		<string>$(CURRENT_PROJECT_VERSION)</string>
 		<key>LSRequiresIPhoneOS</key>
@@ -56,7 +60,7 @@
 			<true />
 		</dict>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string />
+		<string></string>
 		<key>UILaunchStoryboardName</key>
 		<string>LaunchScreen</string>
 		<key>UIRequiredDeviceCapabilities</key>
@@ -86,6 +90,23 @@
 			<string>NotoSansTamil-Regular.ttf</string>
 			<string>OpenSans-Regular.ttf</string>
 			<string>Poppins-Regular.ttf</string>
+		</array>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>fbapi</string>
+			<string>fbapi20130214</string>
+			<string>fbapi20130410</string>
+			<string>fbapi20130702</string>
+			<string>fbapi20131010</string>
+			<string>fbapi20131219</string>
+			<string>fbapi20140410</string>
+			<string>fbapi20140116</string>
+			<string>fbapi20150313</string>
+			<string>fbapi20150629</string>
+			<string>fbauth</string>
+			<string>fb-messenger-share-api</string>
+			<string>fbauth2</string>
+			<string>fbshareextension</string>
 		</array>
 	</dict>
 </plist>
