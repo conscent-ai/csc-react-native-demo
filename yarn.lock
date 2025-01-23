@@ -3039,10 +3039,27 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-csc-react-native-sdk-test@^2.3.5:
-  version "2.3.5"
-  resolved "https://registry.npmjs.org/csc-react-native-sdk-test/-/csc-react-native-sdk-test-2.3.5.tgz"
-  integrity sha512-4boCB56SFqtwEBPX3mWvkZASrYRKy06L33v/6cxZGGMOAV1ILC60JbaF4T1gDmSvcWGgWAPkkvvvPxfyRbHY7Q==
+
+crypt@~0.0.1, crypt@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/crypt/-/crypt-0.0.2.tgz"
+  integrity sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==
+
+crypto-random-string@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-1.0.0.tgz"
+  integrity sha512-GsVpkFPlycH7/fRR7Dhcmnoii54gV1nz7y4CWyeFS14N+JVBBhY+r8amRHE4BwSYal7BPTDp8isvAlCxyFt3Hg==
+
+crypto-random-string@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
+  integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
+
+csc-react-native-sdk@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.npmjs.org/csc-react-native-sdk/-/csc-react-native-sdk-2.1.9.tgz"
+  integrity sha512-YdQ30OVZoGhzARixiHVLq70QnGlSwOHolWfL/bVyemFTfaATPBuHYLz1lDwjR4w/9d+a7jURTXsGOOk++vJ+lQ==
+
   dependencies:
     "@jeremybarbet/apple-api-types" "^1.4.1"
     "@react-native-async-storage/async-storage" "^1.19.3"
@@ -3051,6 +3068,7 @@ csc-react-native-sdk-test@^2.3.5:
     react-native-base64 "^0.2.1"
     react-native-device-info "^10.12.0"
     react-native-event-listeners "^1.0.7"
+
     react-native-fbsdk-next "^13.1.4"
     react-native-gesture-handler "^2.14.0"
     react-native-keyboard-manager "^6.5.11-2"
@@ -3700,10 +3718,80 @@ expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-exponential-backoff@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/exponential-backoff/-/exponential-backoff-3.1.1.tgz"
-  integrity sha512-dX7e/LHVJ6W3DE1MHWi9S1EYzDESENfLrYohG2G++ovZrYOkm4Knwa0mc1cn84xJOR4KEU0WSchhLbd0UklbHw==
+
+expo-asset@~10.0.10:
+  version "10.0.10"
+  resolved "https://registry.npmjs.org/expo-asset/-/expo-asset-10.0.10.tgz"
+  integrity sha512-0qoTIihB79k+wGus9wy0JMKq7DdenziVx3iUkGvMAy2azscSgWH6bd2gJ9CGnhC6JRd3qTMFBL0ou/fx7WZl7A==
+  dependencies:
+    expo-constants "~16.0.0"
+    invariant "^2.2.4"
+    md5-file "^3.2.3"
+
+expo-constants@~16.0.0:
+  version "16.0.2"
+  resolved "https://registry.npmjs.org/expo-constants/-/expo-constants-16.0.2.tgz"
+  integrity sha512-9tNY3OVO0jfiMzl7ngb6IOyR5VFzNoN5OOazUWoeGfmMqVB5kltTemRvKraK9JRbBKIw+SOYLEmF0sEqgFZ6OQ==
+  dependencies:
+    "@expo/config" "~9.0.0"
+    "@expo/env" "~0.3.0"
+
+expo-file-system@~17.0.1:
+  version "17.0.1"
+  resolved "https://registry.npmjs.org/expo-file-system/-/expo-file-system-17.0.1.tgz"
+  integrity sha512-dYpnZJqTGj6HCYJyXAgpFkQWsiCH3HY1ek2cFZVHFoEc5tLz9gmdEgTF6nFHurvmvfmXqxi7a5CXyVm0aFYJBw==
+
+expo-font@~12.0.7:
+  version "12.0.7"
+  resolved "https://registry.npmjs.org/expo-font/-/expo-font-12.0.7.tgz"
+  integrity sha512-rbSdpjtT/A3M+u9xchR9tdD+5VGSxptUis7ngX5zfAVp3O5atOcPNSA82Jeo15HkrQE+w/upfFBOvi56lsGdsQ==
+  dependencies:
+    fontfaceobserver "^2.1.0"
+
+expo-keep-awake@~13.0.2:
+  version "13.0.2"
+  resolved "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-13.0.2.tgz"
+  integrity sha512-kKiwkVg/bY0AJ5q1Pxnm/GvpeB6hbNJhcFsoOWDh2NlpibhCLaHL826KHUM+WsnJRbVRxJ+K9vbPRHEMvFpVyw==
+
+expo-modules-autolinking@>=0.8.1, expo-modules-autolinking@1.11.1:
+  version "1.11.1"
+  resolved "https://registry.npmjs.org/expo-modules-autolinking/-/expo-modules-autolinking-1.11.1.tgz"
+  integrity sha512-2dy3lTz76adOl7QUvbreMCrXyzUiF8lygI7iFJLjgIQIVH+43KnFWE5zBumpPbkiaq0f0uaFpN9U0RGQbnKiMw==
+  dependencies:
+    chalk "^4.1.0"
+    commander "^7.2.0"
+    fast-glob "^3.2.5"
+    find-up "^5.0.0"
+    fs-extra "^9.1.0"
+
+expo-modules-core@1.12.18:
+  version "1.12.18"
+  resolved "https://registry.npmjs.org/expo-modules-core/-/expo-modules-core-1.12.18.tgz"
+  integrity sha512-YhIOJsMNjPvP0tmTbC1MRlxl5q7l21uQQDr1rlXEWHNmI2AEMW0gfr2wXrlB2Tz/oOIx8YqREsj3i0VsYXEaCA==
+  dependencies:
+    invariant "^2.2.4"
+
+expo@*, expo@>=47.0.0, expo@>=50.0.0:
+  version "51.0.18"
+  resolved "https://registry.npmjs.org/expo/-/expo-51.0.18.tgz"
+  integrity sha512-QiaNq2XXjfDk009qbyBFd/5CNikcQ0ZucGlOB3ebNf3z9Q9wrfL1A9E4NqPh6sgm0VG486AYT9mNKwAfcOVCIA==
+  dependencies:
+    "@babel/runtime" "^7.20.0"
+    "@expo/cli" "0.18.22"
+    "@expo/config" "9.0.1"
+    "@expo/config-plugins" "8.0.7"
+    "@expo/metro-config" "0.18.8"
+    "@expo/vector-icons" "^14.0.0"
+    babel-preset-expo "~11.0.12"
+    expo-asset "~10.0.10"
+    expo-file-system "~17.0.1"
+    expo-font "~12.0.7"
+    expo-keep-awake "~13.0.2"
+    expo-modules-autolinking "1.11.1"
+    expo-modules-core "1.12.18"
+    fbemitter "^3.0.0"
+    whatwg-url-without-unicode "8.0.0-3"
+
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
@@ -6168,10 +6256,12 @@ react-native-event-listeners@^1.0.7:
   dependencies:
     type-detect "^4.0.8"
 
+
 react-native-fbsdk-next@^13.1.4:
   version "13.3.0"
   resolved "https://registry.npmjs.org/react-native-fbsdk-next/-/react-native-fbsdk-next-13.3.0.tgz"
   integrity sha512-t2HTHx77yB6Awj6VZpCbEslmRBEgSxqqGM85Jg6t1d1kupho4b3iX2hgR/mfDzjWAqoXnZIAkvN4tNnGTWc7KA==
+
 
 react-native-gesture-handler@^2.14.0, "react-native-gesture-handler@>= 1.0.0", react-native-gesture-handler@~2.16.1:
   version "2.16.2"

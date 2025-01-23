@@ -44,4 +44,5 @@ class MainApplication : Application(), ReactApplication {
     FacebookSdk.setClientToken("e7081219432d2049c5189d64b19cae93");
     FacebookSdk.sdkInitialize(applicationContext)
   }
+
 }
