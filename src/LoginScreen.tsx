@@ -16,7 +16,7 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, loginWithOneTap, conscentLogger } from 'csc-react-native-sdk-test';
+import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, loginWithOneTap, conscentLogger } from 'csc-react-native-sdk';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
 import { AccessToken, AuthenticationToken, LoginManager } from 'react-native-fbsdk-next';
