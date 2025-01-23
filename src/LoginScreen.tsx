@@ -16,9 +16,11 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails } from 'csc-react-native-sdk';
+import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, loginWithOneTap, conscentLogger } from 'csc-react-native-sdk-test';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
+import { AccessToken, AuthenticationToken, LoginManager } from 'react-native-fbsdk-next';
+import { jwtDecode } from 'jwt-decode';
 
 export default function LoginScreen(props: any) {
   const [clientId, setClientId] = useState<string>('66cdad650aa6d0b6dda7b47e');
@@ -103,6 +105,45 @@ export default function LoginScreen(props: any) {
     console.log("gooleSignInBtn");
     ccGooleSignIn('LoginScreen', props.navigation)
     ccAppleSignIn('LoginScreen', props.navigation)
+  }
+
+
+  const handleCustomLogin = () => {
+    LoginManager.logInWithPermissions(['public_profile', 'email']).then(
+      result => {
+        if (result.isCancelled) {
+          console.log('Login cancelled Conclusion');
+        } else {
+          AuthenticationToken.getAuthenticationTokenIOS().then(data => {
+            console.log('User Data ', data);
+            const decodeData: any = jwtDecode(data?.authenticationToken ?? '');
+            conscentLogger.log(decodeData?.sub ?? '');
+            loginWithFacebook('LoginScreen', props?.navigation, data?.authenticationToken ?? '', decodeData?.sub ?? '', decodeData?.email ?? '');
+          });
+        }
+      },
+      error => {
+        console.error(error);
+      },
+    );
+  };
+  async function loginWithFacebook(
+    currentStackName: string,
+    navigation: any,
+    token: string = '',
+    userId: string = '',
+    email: string = '',
+  ) {
+
+
+    const url = `https://user-v2.conscent.art/login?redirectUrl=https://conscent-app-sdk&clientId=66cdad650aa6d0b6dda7b47e&mobileView=true&facebook_id_token=${token}&facebookId=${userId}&facebookEmail=${email}&deviceCategory=IOS`;
+    conscentLogger.log(url);
+
+    navigation.navigate('ConscentWebView', {
+      REDIRECT_URL: url,
+      currentStackName: currentStackName,
+      merge: true,
+    });
   }
 
   return (
