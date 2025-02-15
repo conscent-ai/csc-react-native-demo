@@ -6,7 +6,7 @@ PODS:
   - AppAuth/ExternalUserAgent (1.7.6):
     - AppAuth/Core
   - boost (1.83.0)
-  - csc-react-native-sdk (2.3.8):
+  - csc-react-native-sdk (2.4.1):
     - DoubleConversion
     - glog
     - GoogleSignIn (~> 7.1.0)
@@ -1555,7 +1555,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
-  csc-react-native-sdk: d7c8297a960a3f3f69dec29f05866d7ae9de1147
+  csc-react-native-sdk: afb9b6069ba7219f61cdccba32897150ff5a3998
   DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
   FBAEMKit: e34530df538b8eb8aeb53c35867715ba6c63ef0c
   FBLazyVector: 7e977dd099937dc5458851233141583abba49ff2
