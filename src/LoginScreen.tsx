@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 import {
   StyleSheet,
@@ -16,32 +16,56 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, loginWithOneTap, conscentLogger } from 'csc-react-native-sdk';
-import { EventRegister } from "react-native-event-listeners";
+import {
+  ccGooleSignIn,
+  ccAppleSignIn,
+  login,
+  logOut,
+  openUserProfile,
+  getUserDetails,
+  loginWithOneTap,
+  conscentLogger,
+} from 'csc-react-native-sdk-test';
+import {EventRegister} from 'react-native-event-listeners';
 import Toast from 'react-native-toast-message';
-import { AccessToken, AuthenticationToken, LoginManager } from 'react-native-fbsdk-next';
-import { jwtDecode } from 'jwt-decode';
+import {
+  AccessToken,
+  AuthenticationToken,
+  LoginManager,
+} from 'react-native-fbsdk-next';
+import {jwtDecode} from 'jwt-decode';
 
 export default function LoginScreen(props: any) {
   const [clientId, setClientId] = useState<string>('66cdad650aa6d0b6dda7b47e');
   const [contentId, setContentId] = useState<string>('Client-Story-Id-1');
   const [mode, setMode] = useState<string>('SANDBOX');
   const environment = ['STAGING', 'SANDBOX', 'LIVE'];
-  const fontFamily = ['PlayfairDisplay-Regular',
-    'Poppins-Regular', 'OpenSans-Regular',
-    'Laila-Regular', 'Arima-Regular',
-    'Eczar-Regular', 'Faustina-Regular',
-    'HindMadurai-Regular', 'Montserrat-Regular',
-    'NotoSans-Regular', 'NotoSansTamil-Regular',
+  const fontFamily = [
+    'PlayfairDisplay-Regular',
+    'Poppins-Regular',
+    'OpenSans-Regular',
+    'Laila-Regular',
+    'Arima-Regular',
+    'Eczar-Regular',
+    'Faustina-Regular',
+    'HindMadurai-Regular',
+    'Montserrat-Regular',
+    'NotoSans-Regular',
+    'NotoSansTamil-Regular',
   ];
-  const [getFontFamily, setFontFamily] = useState<string>('PlayfairDisplay-Regular');
+  const [getFontFamily, setFontFamily] = useState<string>(
+    'PlayfairDisplay-Regular',
+  );
   // 784024490654-r5htgk5oletn228deq8fh6s85hsdn0pg.apps.googleusercontent.com  Android
   // 784024490654-69gdo4jf7hifcjl2ol5hfa7bu01baamu.apps.googleusercontent.com  Android
   useEffect(() => {
     if (props?.route?.params) {
       // Post updated, do something with `route.params.post`
       // For example, send the post to the server
-      console.log('props?.route?.params?.message', props?.route?.params?.CONSCENT_MESSAGE);
+      console.log(
+        'props?.route?.params?.message',
+        props?.route?.params?.CONSCENT_MESSAGE,
+      );
     }
   }, [props?.route?.params]);
 
@@ -56,37 +80,35 @@ export default function LoginScreen(props: any) {
   }
 
   useEffect(() => {
-    getUser()
+    getUser();
 
     const CONSCENT_MESSAGE_LISTENER = EventRegister.addEventListener(
-      "CONSCENT_MESSAGE",
-      (data) => {
+      'CONSCENT_MESSAGE',
+      data => {
         console.log('LoginScreen CONSCENT_MESSAGE', data);
-      }
+      },
     );
     const CONSCENT_SUCCESS_LISTENER = EventRegister.addEventListener(
-      "CONSCENT_SUCCESS",
-      (data) => {
-
+      'CONSCENT_SUCCESS',
+      data => {
         Toast.show({
           type: 'success',
           text1: `SUCCESS`,
           text2: `${data?.message}`,
         });
         console.log('LoginScreen CONSCENT_SUCCESS', data);
-      }
+      },
     );
     const CONSCENT_FAILURE_LISTENER = EventRegister.addEventListener(
-      "CONSCENT_FAILURE",
-      (data) => {
-
+      'CONSCENT_FAILURE',
+      data => {
         Toast.show({
           type: 'error',
           text1: `FAILURE`,
           text2: `${data?.message}`,
         });
         console.log('LoginScreen CONSCENT_FAILURE', data);
-      }
+      },
     );
     return () => {
       if (typeof CONSCENT_MESSAGE_LISTENER === 'string') {
@@ -102,11 +124,10 @@ export default function LoginScreen(props: any) {
   }, []);
 
   function gooleSignInBtn() {
-    console.log("gooleSignInBtn");
-    ccGooleSignIn('LoginScreen', props.navigation)
-    ccAppleSignIn('LoginScreen', props.navigation)
+    console.log('gooleSignInBtn');
+    ccGooleSignIn('LoginScreen', props.navigation);
+    ccAppleSignIn('LoginScreen', props.navigation);
   }
-
 
   const handleCustomLogin = () => {
     LoginManager.logInWithPermissions(['public_profile', 'email']).then(
@@ -118,7 +139,13 @@ export default function LoginScreen(props: any) {
             console.log('User Data ', data);
             const decodeData: any = jwtDecode(data?.authenticationToken ?? '');
             conscentLogger.log(decodeData?.sub ?? '');
-            loginWithFacebook('LoginScreen', props?.navigation, data?.authenticationToken ?? '', decodeData?.sub ?? '', decodeData?.email ?? '');
+            loginWithFacebook(
+              'LoginScreen',
+              props?.navigation,
+              data?.authenticationToken ?? '',
+              decodeData?.sub ?? '',
+              decodeData?.email ?? '',
+            );
           });
         }
       },
@@ -134,8 +161,6 @@ export default function LoginScreen(props: any) {
     userId: string = '',
     email: string = '',
   ) {
-
-
     const url = `https://user-v2.conscent.art/login?redirectUrl=https://conscent-app-sdk&clientId=66cdad650aa6d0b6dda7b47e&mobileView=true&facebook_id_token=${token}&facebookId=${userId}&facebookEmail=${email}&deviceCategory=IOS`;
     conscentLogger.log(url);
 
@@ -148,15 +173,9 @@ export default function LoginScreen(props: any) {
 
   return (
     <SafeAreaView style={styles.container}>
-
-
       <ScrollView style={styles.scrollView}>
-
         <Image style={styles.logo} source={require('../assets/conscent.png')} />
-        <Toast
-          position='top'
-          bottomOffset={20}
-        />
+        <Toast position="top" bottomOffset={20} />
         <Text style={styles.title}>Welcome to demo</Text>
         <View style={styles.inputView}>
           <TextInput
@@ -164,7 +183,7 @@ export default function LoginScreen(props: any) {
             value={clientId}
             placeholder="Enter your clientId"
             placeholderTextColor="#003f5c"
-            onChangeText={(text) => setClientId(text)}
+            onChangeText={text => setClientId(text)}
           />
         </View>
         <View style={styles.inputView}>
@@ -173,7 +192,7 @@ export default function LoginScreen(props: any) {
             value={contentId}
             placeholder="Enter your contentId"
             placeholderTextColor="#003f5c"
-            onChangeText={(text) => setContentId(text)}
+            onChangeText={text => setContentId(text)}
           />
         </View>
         <SelectDropdown
@@ -184,7 +203,7 @@ export default function LoginScreen(props: any) {
           dropdownStyle={styles.dropdown1DropdownStyle}
           rowStyle={styles.dropdown1RowStyle}
           rowTextStyle={styles.dropdown1RowTxtStyle}
-          onSelect={(item) => {
+          onSelect={item => {
             setMode(item);
           }}
           buttonTextAfterSelection={(selectedItem: any) => {
@@ -208,7 +227,7 @@ export default function LoginScreen(props: any) {
           dropdownStyle={styles.dropdown1DropdownStyle}
           rowStyle={styles.dropdown1RowStyle}
           rowTextStyle={styles.dropdown1RowTxtStyle}
-          onSelect={(item) => {
+          onSelect={item => {
             setFontFamily(item);
           }}
           buttonTextAfterSelection={(selectedItem: any) => {
@@ -230,40 +249,35 @@ export default function LoginScreen(props: any) {
               contentId: contentId,
               clientId: clientId,
               mode: mode,
-              fontFamily: getFontFamily
+              fontFamily: getFontFamily,
             });
           }}
-          style={styles.loginBtn}
-        >
+          style={styles.loginBtn}>
           <Text style={styles.loginText}>Show Content </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={async () => {
-            await login('LoginScreen', props.navigation)
+            await login('LoginScreen', props.navigation);
           }}
-          style={styles.loginBtn}
-        >
+          style={styles.loginBtn}>
           <Text style={styles.loginText}>Log In </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={async () => {
-            await openUserProfile('LoginScreen', props.navigation,)
+            await openUserProfile('LoginScreen', props.navigation);
           }}
-          style={styles.loginBtn}
-        >
+          style={styles.loginBtn}>
           <Text style={styles.loginText}>User Profile</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={async () => {
-            await logOut('LoginScreen', props?.navigation)
+            await logOut('LoginScreen', props?.navigation);
           }}
-          style={styles.loginBtn}
-        >
+          style={styles.loginBtn}>
           <Text style={styles.loginText}>Log Out </Text>
-
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
@@ -282,7 +296,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     // margin: 30,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   title: {
     fontWeight: 'bold',
@@ -291,7 +305,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginBottom: 40,
     margin: 10,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   inputView: {
     width: '80%',
@@ -302,7 +316,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     // margin: 10,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   inputText: {
     height: 50,
@@ -321,7 +335,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 40,
     marginBottom: 10,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   loginText: {
     fontSize: 16,
@@ -330,7 +344,7 @@ const styles = StyleSheet.create({
   },
   shadow: {
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
+    shadowOffset: {width: 0, height: 6},
     shadowOpacity: 0.1,
     shadowRadius: 10,
     elevation: 10,
@@ -370,7 +384,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#444',
     margin: 10,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   dropdown1BtnTxtStyle: {
     color: '#444',

@@ -1,7 +1,7 @@
-// import { getEnvDetails, getLoginChallengeId, getServiceEnvDetails, validateLoginChallenge, isLogin } from 'csc-react-native-sdk';
+// import { getEnvDetails, getLoginChallengeId, getServiceEnvDetails, validateLoginChallenge, isLogin } from 'csc-react-native-sdk-test';
 // import base64 from 'react-native-base64';
 
-import { isLogin } from 'csc-react-native-sdk';
+import {isLogin} from 'csc-react-native-sdk-test';
 
 // export const genrateTempToken = async (email: string, mode: any) => {
 //     // let base64 = require("base-64"); // install it before use from npm i base-64

@@ -1,19 +1,18 @@
-
 //PACKAGES
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //SCREENS
 import LoginScreen from './LoginScreen';
 import Content from './Content';
-import { StorageKeys, ConscentWebView } from 'csc-react-native-sdk';
-import { conscentLogger } from 'csc-react-native-sdk';
+import {StorageKeys, ConscentWebView} from 'csc-react-native-sdk-test';
+import {conscentLogger} from 'csc-react-native-sdk-test';
 
 export default function App() {
   const Stack = createStackNavigator();
-  AsyncStorage.setItem(StorageKeys.ClientId, '66cdad650aa6d0b6dda7b47e')
-  AsyncStorage.setItem(StorageKeys.ApiEnv, 'SANDBOX')
+  AsyncStorage.setItem(StorageKeys.ClientId, '66cdad650aa6d0b6dda7b47e');
+  AsyncStorage.setItem(StorageKeys.ApiEnv, 'SANDBOX');
 
   // Configure the logger
   conscentLogger.configure({
