@@ -123,8 +123,19 @@ export default function LoginScreen(props: any) {
         }
       });
 
-    } catch (error) {
+    } catch (error: any) {
       console.log({ message: 'handleGetProducts', error });
+      const message = error?.message || error?.toString?.() || '';
+
+      if (message.includes('That item is unavailable')) {
+        console.log({ message: 'abcd', error });
+      }
+
+      const rawMessage = Array.isArray(error) ? error[0]?.message || error[0]?.toString?.() : error?.message || error?.toString?.();
+
+      if (rawMessage?.includes('That item is unavailable')) {
+        console.log({ message: 'abcd2', error });
+      }
     }
   };
 
@@ -222,8 +233,8 @@ export default function LoginScreen(props: any) {
 
         <TouchableOpacity
           onPress={async () => {
-            // await login('LoginScreen', props.navigation)
-            await handleGetProducts()
+            await login('LoginScreen', props.navigation)
+            // await handleGetProducts()
           }}
           style={styles.loginBtn}
         >
