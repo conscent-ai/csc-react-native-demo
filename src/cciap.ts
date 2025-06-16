@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { conscentLogger, getEnvDetails, getProducts, requestPurchase, StorageKeys } from "csc-react-native-sdk-test";
+import { conscentLogger, getEnvDetails, getProducts, requestPurchase, StorageKeys } from "csc-react-native-sdk";
 
 export type Sku = string;
 

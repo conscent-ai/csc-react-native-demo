@@ -16,7 +16,7 @@ import {
 
 //PACKAGES
 import SelectDropdown from 'react-native-select-dropdown';
-import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, getProducts, getSubscriptions, requestPurchase } from 'csc-react-native-sdk-test';
+import { ccGooleSignIn, ccAppleSignIn, login, logOut, openUserProfile, getUserDetails, getProducts, getSubscriptions, requestPurchase } from 'csc-react-native-sdk';
 import { EventRegister } from "react-native-event-listeners";
 import Toast from 'react-native-toast-message';
 import { veriftRecieptData } from './cciap';
